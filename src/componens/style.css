@@ -1,0 +1,114 @@
+body {
+    background-color: #f8f9fa;    
+    font-family:  Helvetica, Arial, sans-serif;
+  }
+
+.mainHome{
+  width: 100%;
+  height: 100vh;
+}
+
+video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contentHome{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  align-items: start;
+
+}
+
+
+
+.line {
+  position: relative;
+  width: 200px;
+  height: 3px;
+  background: black;
+  border-radius: 50%;
+}
+.line::before {
+
+  content: '';
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f9fa;
+  transform-origin: left;
+  animation: animate 7s linear infinite;
+}
+
+
+@keyframes animate
+{
+  0%,25%
+  {
+    transform: scaleX(0);
+  }
+
+  25%,50%
+  {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50.0001%,75%
+  {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  75%,100%
+  {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+
+
+}
+
+
+.line::after{
+
+  content: '';
+  position: absolute;
+
+}
+
+.linkedin{
+  cursor: pointer;
+}
+
+.linkedin:hover{
+  color: #1c1cd3
+}
+
+.test1{
+  
+  font-weight: bold;
+  font-size: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.card-img-top{ width: 100%; height: 200px; }
+
+.card{
+  height: 550px;
+}
+
+.navbar-toggler{
+  background-image: url("https://www.svgrepo.com/show/509382/menu.svg");
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+.test2{
+  font-size: 20px;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+}

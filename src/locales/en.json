@@ -1,0 +1,49 @@
+{
+    "home":"home",
+    "calibration":"Calibration",
+    "validation":"Validation",
+    "engineering":"Engineering",
+    "repair services":"Repair Services",
+    "contact":"contact",
+    "slogen":"Your Accuracy Our Technology.",
+    "vision":"Vision",    
+    "vision_text1":"Our vision is to access the calibration, engineering, and validation services for the industry in a holistic manner.",
+    "vision_text2":"Our vision is based on emphasizing the customer's needs in all aspects.",
+    "vision_text3":"All this in a holistic response - without the need for the customer to deal with additional factors and additional tasks",
+    "vision_text4":"The main aspect is an optimal solution to the client's needs - and accordingly and subsequently compliance with the budget.",
+    "vision_text5":"Solutions with “Turn Key” method - the product or the needs at the end of the process are ready for immediate use.",
+    "mission":"Mission",
+    "mission_text1":"Our mission is to bring the customer all the detailed information to make a decision about the exact need,All this in a professional, efficient and fast manner while emphasizing the economic aspect.",
+    "mission_text2":"The mission is based on 3 main pillars bases:",
+    "mission1":"1. Studying the customer's needs.",
+    "mission2":"2. Examining possible solutions.",
+    "mission3":"3. Providing options for a solution.",
+    "mission_text3":"These options allow the customers to make a decision after a quick and efficient response in every subject.",
+    "address":"Shoam st. 11 Petah Tikva",
+    "titel 5 carsd":"The company's services are provided in Israel in any region in the following fields of activity:",
+    "calibration home text":"calibration of masters in temperature with high accuracy - our company is certified to the ISO-17025 standard Includes the possibility of supporting the client's internal calibration system - construction and support of a calibration system.",
+    "validation home text":"validation and consulting on validation for processes and equipment - mainly in the pharmaceutical industry, Focus on cleaning processes and methods, sterilization and validation for Equipments and Systems.",
+    "engineering home text":"project management and consulting on engineering issues (construction of facilities, clean rooms, air conditioning systems, production rooms, autoclave, machines and equipment) mainly for factories that are subject to inspection by the various health authorities in the world.",
+    "repair services home text":"our company supply repair services for electronic equipment for temperature measurement.",
+    "holistic":"holistic",
+    "holistic home text":"Providing a holistic response to the customer on the subject of equipment - solving the specific need from the subject of finding the solution to the customer's needs till the use of the equipment when it is installed and approved for use.",
+    "calibration page text":"Our company is ISO-17025 standard certified for providing temperature calibration services at the highest accuracy level in Israel, we calibrate temperature masters as well as calibration bathes, the uniqueness of our laboratory is the high level of accuracy in order to preserve the traceability of the calibration,Our company calibrates sensors with high precision (6 Mk), that saves transporting of the sensors (which may endanger or cause a change in the sensor calibration) and saves calibration time which is reflected in the loss of valuable work time while the equipment is being calibrated We provide calibration services for temperature sensors of various types SPRT, PRT, PT, RTD, IRTD, TERMOCOUPLES etc. of various manufacturers FLUKE, GE, ISOTECH, AMETEK, KAYE, DRUCK and more,We work with all the different calibration protocols (ITS-90, IPTS-68, CVD, and more) with official software for calculating exact parameters.Our company performs calibration tests and brings the equipment to the highest levels of accuracy in the most professional manner.We work in complete transparency with the client - according to ISO-17025 procedures - and in full cooperation in order to give the client the best answer for him.The reliability of the company is the basis for providing the best service - therefore we will always recommend to the client what is right for him.",
+    "validation page text":"Our company knows to provide service in the field of Validation mainly in the pharmaceutical industry (pharmaceutical manufacturers) in all the various validation issues.From systems (air conditioning, gases, water, steam and more), machines and devices (refrigerators and freezers of all types, incubators and temperature cells, production and packaging machines)Validation for computerized systems (CSV) and compliance with FDA CFR Part 11.Validation for cleaning processes (Cleaning Validation) including the develop process, the Policy and Master plans the protocols, executions and final reports.In all areas of validation, we provide an integrated service from the writing of the initial documents (protocols and documents required before execution) including the actual execution of validation to the writing of the final reports.Moreover, we provide consulting in create Policies and Master Plans in the Validation issues.We make sure to perform accurate and professional work, all this in view of many years of experience and knowledge in the Validation fields.",
+    "engineering page text":"Our company provides service in the various fields of engineering - from characterization of needs for the client to the adjustment of the required systems and equipment. Including writing various engineering documents and meeting the regulatory requirements (mainly of the various ministries of health) in Israel and around the world.In all areas of engineering, we provide a service that includes characterization, the writing of the various documents (URS, FS, TM, Commissioning, Engineering Files and more) the execution and supervision of the actual construction (a critical step in order to ensure that the construction process progresses according to the customer's needs - and to prevent malfunctions and repairs along the way) the inspection of the systems at the end of the installation and writing The documents required in the whole process.",
+    "repair services page text":"Our company provides repair and maintenance services for temperature measuring devices and temperature baths of various types. As part of the repair service, we replace electronic components, sensors and probes.Our company has a deep familiarity with the various assemblies of temperature ovens (baths) for industry from a variety of manufacturers (FLUKE, GE, ISOTECH, AMETEK, KAYE, DRUCK and more).",
+    "contact us":"Contact us",
+    "name":"Name",
+    "email":"Email address",
+    "subject":"Subject",
+    "message":"Message",
+    "copy":"Send me copy",
+    "send":"Send"
+    
+
+
+    
+    
+    
+    
+    
+}
