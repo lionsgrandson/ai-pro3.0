@@ -5,7 +5,6 @@ import Card from "./Card";
 import {
   calibration_img_url,
   engineering_img_url,
-  holistic_img_url,
   low,
   repair_img_url,
   validation_img_url,
@@ -107,7 +106,3 @@ export default function Home() {
     </div>
   );
 }
-/**
- 
-
-*/
