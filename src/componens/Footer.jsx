@@ -40,7 +40,7 @@ export default function App() {
                 <a href="mailto:office@ai-pro.co.il">office@ai-pro.co.il</a>
               </p>
               <p className="linkedin">
-                <MDBIcon fab icon="linkedin" className="me-3" />{" "}
+                <MDBIcon fab icon="linkedin" className="me-3" />
                 <a href="https://www.linkedin.com/in/itai-amrofel-8b006a11/">
                   Linkedin
                 </a>

@@ -4,7 +4,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logo_cut, israel_color, usa_color } from "../assets";
 import { useTranslation } from "react-i18next";
-
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+} from "mdb-react-ui-kit";
 export default function Header() {
   const [expanded, setExpanded] = useState(false);
   const { t, i18n } = useTranslation();
@@ -31,7 +37,7 @@ export default function Header() {
         variant="light"
         expanded={expanded}
         id="togNav"
-        style={{ direction: dir }}
+        style={{ direction: dir, flexWrap: "wrap" }}
       >
         <Navbar.Brand>
           <div style={{ marginLeft: "20px" }}>
@@ -67,7 +73,26 @@ export default function Header() {
             <Nav.Link as={Link} to="/contact" className="test2">
               <strong>{t("contact").toUpperCase()}</strong>
             </Nav.Link>
+            <div style={{ display: "flex" }} className="test2">
+              <Nav.Link
+                as={Link}
+                to="https://www.Linkedin.com/in/itai-amrofel-8b006a11/"
+                className="test2"
+                style={{ marginLeft: "0.5rem" }}
+              >
+                <MDBIcon fab icon="linkedin" />
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                to="mailto:office@ai-pro.co.il"
+                className="test2"
+              >
+                <MDBIcon icon="envelope" />
+              </Nav.Link>
+            </div>
           </Nav>
+
           <div
             className="col-3 col-md-1 d-flex align-items-center justify-content-between justify-content-md-evenly"
             style={{
