@@ -8,6 +8,7 @@ import {
   low,
   repair_img_url,
   validation_img_url,
+  isoImg_url,
 } from "../../assets";
 
 export default function Home() {
@@ -22,7 +23,6 @@ export default function Home() {
     textShadow: "1px 1px 1px rgb(180, 180, 180)",
     fontFamily: "system-ui sans-serif",
     paddingBottom: "15vmin",
-    paddingTop: "5vmin",
   };
 
   return (
@@ -32,12 +32,7 @@ export default function Home() {
       >
         <Lcp />
       </Suspense>
-      <div
-        className="col-12 d-flex align-items-center justify-content-center"
-        style={{ height: "10vh" }}
-      >
-        <div className="line"></div>
-      </div>
+
       <div
         className="vision col-12 d-flex flex-md-row flex-column "
         style={{ height: "" }}
@@ -47,7 +42,12 @@ export default function Home() {
           style={{ padding: "20vmin", paddingBottom: "5vmin" }}
         >
           <h2>{t("vision")}</h2>
-          <div style={{ border: "black 2px solid" }}></div>
+          <div
+            className="col-12 d-flex align-items-center justify-content-center"
+            style={{ height: "5vh", width: "10vw" }}
+          >
+            <div className="line"></div>
+          </div>
           <div style={text_style}>
             <p>{t("vision_text1")}</p>
             <p>{t("vision_text2")}</p>
@@ -58,7 +58,12 @@ export default function Home() {
           <div style={{ height: "5vmin" }}></div>
 
           <h2>{t("mission")}</h2>
-          <div style={{ border: "black 2px solid" }}></div>
+          <div
+            className="col-12 d-flex align-items-center justify-content-center"
+            style={{ height: "5vh", width: "10vw" }}
+          >
+            <div className="line"></div>
+          </div>
           <div style={text_style}>
             <p>{t("mission_text1")}</p>
             <p>{t("mission_text2")}</p>
@@ -82,16 +87,10 @@ export default function Home() {
       </div>
 
       <div
-        className="col-12 d-flex align-items-center justify-content-center"
-        style={{ height: "5vh" }}
-      >
-        <div className="line"></div>
-      </div>
-      <div
         className="textvisin col-12 d-flex flex-column justify-content-center"
         style={{ paddingInlineStart: "5vmin", paddingBottom: "5vmin" }}
       ></div>
-
+      <img src={isoImg_url} alt="ISO/IEC 17025:2017 certified" />
       <div
         className="cards d-flex justify-content-around  flex-wrap col-12 "
         style={{ margin: "0" }}
