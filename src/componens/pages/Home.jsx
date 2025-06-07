@@ -33,48 +33,52 @@ export default function Home() {
         <Lcp />
       </Suspense>
 
-      <div
-        className="vision col-12 d-flex flex-md-row flex-column "
-        style={{ height: "" }}
-      >
+      <div className="vision col-12 d-flex flex-md-row " style={{ height: "" }}>
         <div
-          className="textvisin col-12 col-md-6 d-flex flex-column justify-content-center"
-          style={{ padding: "20vmin", paddingBottom: "5vmin" }}
+          className="textvisin col-12 col-md-6 d-flex flex-row justify-content-center"
+          style={{
+            padding: "20vmin",
+            paddingBottom: "5vmin",
+            width: "100vw",
+          }}
         >
-          <h2>{t("vision")}</h2>
-          <div
-            className="col-12 d-flex align-items-center justify-content-center"
-            style={{ height: "5vh", width: "10vw" }}
-          >
-            <div className="line"></div>
+          <div style={{ width: "max-content", padding: " 0 5rem" }}>
+            <h2>{t("vision")}</h2>
+            <div
+              className="col-12 d-flex align-items-center justify-content-center"
+              style={{ height: "5vh", width: "10vw" }}
+            >
+              <div className="line"></div>
+            </div>
+            <div style={text_style}>
+              <p>{t("vision_text1")}</p>
+              <p>{t("vision_text2")}</p>
+              <p>{t("vision_text3")}</p>
+              <p>{t("vision_text4")}</p>
+              <p>{t("vision_text5")}</p>
+            </div>
+            <div style={{ height: "5vmin" }}></div>
           </div>
-          <div style={text_style}>
-            <p>{t("vision_text1")}</p>
-            <p>{t("vision_text2")}</p>
-            <p>{t("vision_text3")}</p>
-            <p>{t("vision_text4")}</p>
-            <p>{t("vision_text5")}</p>
-          </div>
-          <div style={{ height: "5vmin" }}></div>
-
-          <h2>{t("mission")}</h2>
-          <div
-            className="col-12 d-flex align-items-center justify-content-center"
-            style={{ height: "5vh", width: "10vw" }}
-          >
-            <div className="line"></div>
-          </div>
-          <div style={text_style}>
-            <p>{t("mission_text1")}</p>
-            <p>{t("mission_text2")}</p>
-            <p>{t("mission1")}</p>
-            <p>{t("mission2")}</p>
-            <p>{t("mission3")}</p>
-            <p>{t("mission_text3")}</p>
+          <div style={{ width: "max-content" }}>
+            <h2>{t("mission")}</h2>
+            <div
+              className="col-12 d-flex align-items-center justify-content-center"
+              style={{ height: "5vh", width: "10vw" }}
+            >
+              <div className="line"></div>
+            </div>
+            <div style={text_style}>
+              <p>{t("mission_text1")}</p>
+              <p>{t("mission_text2")}</p>
+              <p>{t("mission1")}</p>
+              <p>{t("mission2")}</p>
+              <p>{t("mission3")}</p>
+              <p>{t("mission_text3")}</p>
+            </div>
           </div>
         </div>
 
-        <div
+        {/* <div
           className="imgvisin col-12 col-md-5 mt-5 mt-md-0 d-flex align-items-center justify-content-center"
           style={{ height: "" }}
         >
@@ -84,6 +88,7 @@ export default function Home() {
             alt="vision "
           />
         </div>
+        */}
       </div>
 
       <div
