@@ -2,7 +2,7 @@
   "name": "ai-pro",
   "version": "3.1.0",
   "private": true,
-  "homepage": "./public",
+  "homepage": "./build",
   "dependencies": {
     "@babel/register": "^7.23.7",
     "@emailjs/browser": "^4.1.0",
