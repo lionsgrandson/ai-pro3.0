@@ -90,7 +90,11 @@ export default function Home() {
         className="textvisin col-12 d-flex flex-column justify-content-center"
         style={{ paddingInlineStart: "5vmin", paddingBottom: "5vmin" }}
       ></div>
-      <img src={isoImg_url} alt="ISO/IEC 17025:2017 certified" />
+      <img
+        src={isoImg_url}
+        alt="ISO/IEC 17025:2017 certified"
+        style={{ width: "10%", marginRight: "70%" }}
+      />
       <div
         className="cards d-flex justify-content-around  flex-wrap col-12 "
         style={{ margin: "0" }}
