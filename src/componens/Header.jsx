@@ -55,22 +55,22 @@ export default function Header() {
         />
         <Navbar.Collapse id="responsive-navbar-nav" style={{ direction: dir }}>
           <Nav className="me-auto my-2 my-lg-0 text-secondary d-flex align-items-center col-10">
-            <Nav.Link as={Link} to="/" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/" className="test2">
               <strong>{t("home").toUpperCase()}</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/calibration" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/calibration" className="test2">
               <strong>{t("calibration").toUpperCase()}</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/validation" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/validation" className="test2">
               <strong>{t("validation").toUpperCase()}</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/engineering" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/engineering" className="test2">
               <strong>{t("engineering").toUpperCase()}</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/repair" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/repair" className="test2">
               <strong>{t("repair services").toUpperCase()}</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="test2">
+            <Nav.Link as={Link} to="/ai-pro-temp/contact" className="test2">
               <strong>{t("contact").toUpperCase()}</strong>
             </Nav.Link>
             <div style={{ display: "flex" }} className="test2">

@@ -4,6 +4,9 @@ import israel_color from "./israel_color.png";
 import usa_color from "./usa_color.png";
 import low from "./low.jpg";
 import isoImg_url from "./iso.png";
+import accredited from "./accredited.png";
+import accreditedGreen from "./accrteditedGreen.png";
+import accreditedSecond from "./accreditedSecond.png";
 
 const calibration_img_url =
   "https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_webp/www.beamex.com/app/uploads/2022/09/shutterstock-2081987611-scaled.jpg";
@@ -31,4 +34,7 @@ export {
   repair_img_url,
   holistic_img_url,
   isoImg_url,
+  accredited,
+  accreditedGreen,
+  accreditedSecond,
 };

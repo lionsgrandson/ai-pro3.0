@@ -16,12 +16,12 @@ function App() {
       <FloatingWhatsApp phoneNumber="972505100018" accountName="AI Pro" />
       <Header />
       <Routes>
-        <Route exact path="ai-pro-temp/" element={<Home />} />
-        <Route path="ai-pro-temp/calibration" element={<Calibration />} />
-        <Route path="ai-pro-temp/engineering" element={<Engineering />} />
-        <Route path="ai-pro-temp/repair" element={<Repair />} />
-        <Route path="ai-pro-temp/validation" element={<Validation />} />
-        <Route path="ai-pro-temp/contact" element={<Contact />} />
+        <Route exact path="/ai-pro-temp/" element={<Home />} />
+        <Route path="/ai-pro-temp/calibration" element={<Calibration />} />
+        <Route path="/ai-pro-temp/engineering" element={<Engineering />} />
+        <Route path="/ai-pro-temp/repair" element={<Repair />} />
+        <Route path="/ai-pro-temp/validation" element={<Validation />} />
+        <Route path="/ai-pro-temp/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

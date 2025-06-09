@@ -9,6 +9,9 @@ import {
   repair_img_url,
   validation_img_url,
   isoImg_url,
+  accreditedSecond,
+  accredited,
+  accreditedGreen,
 } from "../../assets";
 
 export default function Home() {
@@ -40,9 +43,10 @@ export default function Home() {
             padding: "20vmin",
             paddingBottom: "5vmin",
             width: "100vw",
+            flexWrap: "wrap",
           }}
         >
-          <div style={{ width: "max-content", padding: " 0 5rem" }}>
+          <div style={{ width: "max-content" }}>
             <h2>{t("vision")}</h2>
             <div
               className="col-12 d-flex align-items-center justify-content-center"
@@ -93,13 +97,25 @@ export default function Home() {
 
       <div
         className="textvisin col-12 d-flex flex-column justify-content-center"
-        style={{ paddingInlineStart: "5vmin", paddingBottom: "5vmin" }}
+        style={{
+          paddingInlineStart: "5vmin",
+          paddingBottom: "5vmin",
+        }}
       ></div>
-      <img
-        src={isoImg_url}
-        alt="ISO/IEC 17025:2017 certified"
-        style={{ width: "10%", marginRight: "70%" }}
-      />
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          width: "90vw",
+        }}
+      >
+        <img src={isoImg_url} alt="ISO/IEC 17025:2017 certified" />
+        <img src={accredited} alt="Accredited certified" />
+        <img src={accreditedGreen} alt="Accredited certified Green logo" />
+        <img src={accreditedSecond} alt="Accredited certified Yellow" />
+      </div>
       <div
         className="cards d-flex justify-content-around  flex-wrap col-12 "
         style={{ margin: "0" }}
