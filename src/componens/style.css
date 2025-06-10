@@ -39,7 +39,9 @@ video {
   transform-origin: left;
   animation: animate 7s linear infinite;
 }
-
+label {
+  color: white !important;
+}
 @keyframes animate {
   0%,
   25% {
