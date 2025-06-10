@@ -38,7 +38,7 @@ export default function Home() {
 
       <div className="vision col-12 d-flex flex-md-row " style={{ height: "" }}>
         <div
-          className="textvisin col-12 col-md-6 d-flex flex-row justify-content-center"
+          className="textvisin col-12 col-md-6 d-flex flex-row"
           style={{
             padding: "20vmin",
             paddingBottom: "5vmin",
