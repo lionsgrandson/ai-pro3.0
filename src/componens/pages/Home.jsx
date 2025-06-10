@@ -12,6 +12,7 @@ import {
   accreditedSecond,
   accredited,
   accreditedGreen,
+  firstImage,
 } from "../../assets";
 
 export default function Home() {
@@ -36,7 +37,17 @@ export default function Home() {
         <Lcp />
       </Suspense>
 
-      <div className="vision col-12 d-flex flex-md-row " style={{ height: "" }}>
+      <div
+        className="vision col-12 d-flex flex-md-row "
+        style={{
+          height: "",
+          backgroundImage: `url(${firstImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          width: "100vw",
+          color: "white",
+        }}
+      >
         <div
           className="textvisin col-12 col-md-6 d-flex flex-row"
           style={{
