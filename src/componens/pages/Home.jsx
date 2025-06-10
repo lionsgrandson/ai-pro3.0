@@ -117,15 +117,31 @@ export default function Home() {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           flexWrap: "wrap",
           width: "90vw",
         }}
       >
-        <img src={isoImg_url} alt="ISO/IEC 17025:2017 certified" />
-        <img src={accredited} alt="Accredited certified" />
-        <img src={accreditedGreen} alt="Accredited certified Green logo" />
-        <img src={accreditedSecond} alt="Accredited certified Yellow" />
+        <img
+          src={isoImg_url}
+          style={{ width: "20%" }}
+          alt="ISO/IEC 17025:2017 certified"
+        />
+        <img
+          src={accredited}
+          alt="Accredited certified"
+          style={{ width: "20%" }}
+        />
+        <img
+          src={accreditedGreen}
+          alt="Accredited certified Green logo"
+          style={{ width: "20%" }}
+        />
+        <img
+          src={accreditedSecond}
+          alt="Accredited certified Yellow"
+          style={{ width: "20%" }}
+        />
       </div>
       <div
         className="cards d-flex justify-content-around  flex-wrap col-12 "
