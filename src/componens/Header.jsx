@@ -44,7 +44,7 @@ export default function Header() {
             <img
               src={logo_cut}
               style={{ width: "40px", borderRadius: "50%" }}
-              alt="image logo"
+              alt="brand logo"
             />
           </div>
         </Navbar.Brand>
@@ -78,7 +78,7 @@ export default function Header() {
                 as={Link}
                 to="https://www.Linkedin.com/in/itai-amrofel-8b006a11/"
                 className="test2"
-                style={{ marginLeft: "0.5rem" }}
+                style={{ margin: " 0 0.5rem" }}
               >
                 <MDBIcon fab icon="linkedin" />
               </Nav.Link>
@@ -94,7 +94,7 @@ export default function Header() {
           </Nav>
 
           <div
-            className="col-3 col-md-1 d-flex align-items-center justify-content-between justify-content-md-evenly"
+            className="col-3 col-md-1 d-flex align-items-center justify-content-center justify-content-md-evenly"
             style={{
               marginRight: "20px",
               marginLeft: "20px",
