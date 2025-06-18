@@ -5,9 +5,9 @@ import Card from "./Card";
 import {
   calibration_img_url,
   engineering_img_url,
-  low,
   repair_img_url,
   validation_img_url,
+  low,
   isoImg_url,
   accreditedSecond,
   accredited,
@@ -126,7 +126,7 @@ export default function Home() {
         <img src={accreditedSecond} alt="Accredited certified Yellow" />
       </div>
       <div
-        className="cards d-flex justify-content-around  flex-wrap col-12 "
+        className="cards d-flex justify-content-center  flex-wrap col-12 "
         style={{ margin: "0" }}
       >
         <Card img_url={calibration_img_url} kind="calibration" />

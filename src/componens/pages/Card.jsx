@@ -6,6 +6,7 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
+  MDBCardOverlay,
 } from "mdb-react-ui-kit";
 
 import "../style.css";
@@ -23,16 +24,21 @@ export default function Card({ img_url, kind }) {
   return (
     <div
       style={{
-        width: "min-content",
+        width: "24vw",
         minWidth: "20rem",
         height: "400px",
-        margin: "10vmax auto ",
+        margin: "10vmax 5px ",
         marginBottom: "10vmax",
       }}
     >
-      <MDBCard>
-        <MDBCardImage src={img_url} position="top" alt={kind} />
-        <MDBCardBody>
+      <MDBCard background="dark" className="text-white">
+        <MDBCardImage
+          style={{ height: "inherit" }}
+          overlay
+          src={img_url}
+          alt={kind}
+        />
+        <MDBCardOverlay>
           <MDBCardTitle
             style={{
               textTransform: "uppercase",
@@ -43,7 +49,7 @@ export default function Card({ img_url, kind }) {
             {t(kind)}
           </MDBCardTitle>
           <MDBCardText style={text_style}>{t(`${kind} home text`)}</MDBCardText>
-        </MDBCardBody>
+        </MDBCardOverlay>
       </MDBCard>
     </div>
   );
