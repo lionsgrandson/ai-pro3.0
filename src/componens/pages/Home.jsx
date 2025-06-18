@@ -126,13 +126,29 @@ export default function Home() {
         <img src={accreditedSecond} alt="Accredited certified Yellow" />
       </div>
       <div
-        className="cards d-flex justify-content-center  flex-wrap col-12 "
+        className="cards d-flex justify-content-center col-12 cardDiv"
         style={{ margin: "0" }}
       >
-        <Card img_url={calibration_img_url} kind="calibration" />
-        <Card img_url={validation_img_url} kind="validation" />
-        <Card img_url={engineering_img_url} kind="engineering" />
-        <Card img_url={repair_img_url} kind="repair services" />
+        <Card
+          img_url={calibration_img_url}
+          kind="calibration"
+          linkArr={"calibration"}
+        />
+        <Card
+          img_url={validation_img_url}
+          kind="validation"
+          linkArr={"validation"}
+        />
+        <Card
+          img_url={engineering_img_url}
+          kind="engineering"
+          linkArr={"engineering"}
+        />
+        <Card
+          img_url={repair_img_url}
+          kind="repair services"
+          linkArr={"repair"}
+        />
       </div>
 
       <div style={{ margin: "5vmin" }}></div>

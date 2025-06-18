@@ -1,0 +1,65 @@
+.cardcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  flex-wrap: nowrap;
+  min-width: 20rem;
+  margin: 10vmax 5px;
+  margin-bottom: 10vmax;
+  width: 24vw;
+}
+
+.h4TextCard {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.pCardText {
+  font-style: italic;
+  font-size: large;
+  text-shadow: 1px 1px 1px rgb(180, 180, 180);
+  font-family: system-ui sans-serif;
+}
+.card-text-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  color: white;
+}
+.cardcontainer:hover .card-text-content {
+  opacity: 1;
+}
+.cardcontainer:hover {
+  /* transform: scaleX(1.2); */
+  width: 30%;
+}
+.cardImg {
+  height: 100vh;
+  width: 24vw;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 1500px) {
+  .cardDiv {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .cardcontainer {
+    width: 100%;
+    margin: 5px 0;
+    padding: 1rem 0;
+    height: auto;
+  }
+  .cardcontainer:first-child {
+    margin-top: 5rem;
+  }
+  .card-text-content {
+    opacity: 1;
+  }
+  .cardcontainer:hover {
+    width: 100%;
+  }
+}
