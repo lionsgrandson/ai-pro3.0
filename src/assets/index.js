@@ -9,19 +9,9 @@ import accreditedGreen from "./accrteditedGreen.png";
 import accreditedSecond from "./accreditedSecond.png";
 import firstImage from "./firstVideoFrame.png";
 import calibration_img_url from "./calibration.jpeg";
-import validation_img_url from "./validation_low.jpg";
+import validation_img_url from "./validation.jpg";
 import repair_img_url from "./repair_low.jpg";
 import engineering_img_url from "./engineering.jpg";
-// const calibration_img_url =
-//   "https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_webp/www.beamex.com/app/uploads/2022/09/shutterstock-2081987611-scaled.jpg";
-
-// const validation_img_url =
-//   "https://media.istockphoto.com/id/1499410370/photo/tick-symbol-on-a-digital-lcd-display-with-reflection.jpg?s=612x612&w=0&k=20&c=e2rpGUoEpwl2I5JrR5Nm_UjVZEvsyaEFrmoMlKWlxsc=";
-
-// const engineering_img_url =
-//   "https://cdn.mos.cms.futurecdn.net/HFUAjfbamNhbM8dsNSQW3D-1200-80.jpg";
-
-// const repair_img_url = "https://wallpaperaccess.com/full/3447220.jpg";
 
 const holistic_img_url =
   "https://e0.pxfuel.com/wallpapers/389/715/desktop-wallpaper-lipid-metabolism-discovered-in-cell-nucleus.jpg";
