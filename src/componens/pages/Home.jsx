@@ -92,18 +92,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* <div
-          className="imgvisin col-12 col-md-5 mt-5 mt-md-0 d-flex align-items-center justify-content-center"
-          style={{ height: "" }}
-        >
-          <img
-            src={low}
-            style={{ objectFit: "cover", width: "70vmin", height: "95vmin" }}
-            alt="vision "
-          />
-        </div>
-        */}
       </div>
 
       <div
@@ -114,16 +102,17 @@ export default function Home() {
         }}
       ></div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-          width: "90vw",
-        }}
-      >
-        <img src={isoImg_url} alt="ISO/IEC 17025:2017 certified" />
-        <img src={accreditedSecond} alt="Accredited certified Yellow" />
+      <div className="divCert">
+        <img
+          className="imgCert"
+          src={isoImg_url}
+          alt="ISO/IEC 17025:2017 certified"
+        />
+        <img
+          className="imgCert"
+          src={accreditedSecond}
+          alt="Accredited certified Yellow"
+        />
       </div>
       <div
         className="cards d-flex justify-content-center col-12 cardDiv"

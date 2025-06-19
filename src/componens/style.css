@@ -103,3 +103,25 @@ label {
   font-size: 20px;
   font-family: Calibri, "Trebuchet MS", sans-serif;
 }
+.divCert {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 90vw;
+}
+.imgCert {
+  width: 20%;
+}
+@media (max-width: 900px) {
+  .imgCert {
+    width: 40%;
+  }
+  .divCert {
+    width: 100vw;
+  }
+}
+@media (max-width: 550px) {
+  .imgCert {
+    width: 60%;
+  }
+}
