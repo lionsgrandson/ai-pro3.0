@@ -1,16 +1,17 @@
-import React from "react";
-import { MDBInput, MDBCheckbox, MDBBtn, MDBTextArea } from "mdb-react-ui-kit";
+import React, { useState, useEffect } from "react";
+import { MDBInput, MDBBtn, MDBTextArea } from "mdb-react-ui-kit";
 import { useTranslation } from "react-i18next";
-import { useRef, useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { firstImage } from "../../assets";
+import firstImage from "../../assets/firstVideoFrame.png"; // Updated import path
 
-export default function App() {
+export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const { t } = useTranslation();
 
@@ -21,77 +22,110 @@ export default function App() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     color: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
 
-  useEffect(() => emailjs.init("WRe1AxRZRD1p_fgpj"), []);
+  useEffect(() => {
+    emailjs.init("aS_Kd2on0E1C1dTBv"); // Replace with your EmailJS public key
+  }, []);
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceId = "service_1lr9773";
-    const templateId = "template_mw9ea3n";
+    setError("");
+    setSuccess("");
+
+    // Basic form validation
+    if (!name || !email || !subject || !message) {
+      setError(t("All fields are required"));
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setError(t("Invalid email address"));
+      return;
+    }
+
+    const serviceId = "service_f6s9o6x"; // Replace with your EmailJS service ID
+    const templateId = "template_jux7c9h"; // Replace with your EmailJS template ID
+
     try {
       setLoading(true);
       await emailjs.send(serviceId, templateId, {
-        name: name,
-        message: message,
-        subject: subject,
-        email: email,
+        name,
+        email,
+        subject,
+        message,
       });
-      alert("email successfully sent check inbox");
-    } catch (error) {
-      console.log(error);
+      setSuccess(t("Email sent successfully!"));
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } catch (err) {
+      setError(t("Failed to send email. Please try again."));
+      console.error("EmailJS error:", err);
     } finally {
       setLoading(false);
     }
   };
+
   return (
-    <div
-      className="col-12 d-flex flrx-column justify-content-center align-items-center"
-      style={style}
-    >
+    <div className="col-12" style={style}>
       <form
-        id="form"
+        id="contact-form"
         className="text-center"
         style={{
           width: "100%",
-          maxWidth: "300px",
+          maxWidth: "400px",
           fontStyle: "italic",
-          color: "white !important",
         }}
+        onSubmit={handleSubmit}
       >
-        <h1>{t("contact us")}</h1>
+        <h1 className="mb-4">{t("Contact Us")}</h1>
+
+        {error && <div className="alert alert-danger">{error}</div>}
+        {success && <div className="alert alert-success">{success}</div>}
 
         <MDBInput
-          label={t("name")}
-          v-model="name"
+          label={t("Name")}
+          value={name}
           wrapperClass="mb-4"
+          contrast
           onChange={(e) => setName(e.target.value)}
+          required
         />
 
         <MDBInput
           type="email"
-          style={{ color: "white" }}
-          label={t("email")}
-          v-model="email"
+          label={t("Email")}
+          value={email}
           wrapperClass="mb-4"
+          contrast
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <MDBInput
-          label={t("subject")}
-          v-model="subject"
+          label={t("Subject")}
+          value={subject}
           wrapperClass="mb-4"
+          contrast
           onChange={(e) => setSubject(e.target.value)}
+          required
         />
 
         <MDBTextArea
+          label={t("Message")}
+          value={message}
           wrapperClass="mb-4"
-          label={t("message")}
+          contrast
           onChange={(e) => setMessage(e.target.value)}
+          required
         />
 
-        <MDBBtn color="primary" block className="my-4 " onClick={handleClick}>
-          {t("send")}
+        <MDBBtn color="primary" block type="submit" disabled={loading}>
+          {loading ? t("Sending...") : t("Send")}
         </MDBBtn>
       </form>
     </div>
