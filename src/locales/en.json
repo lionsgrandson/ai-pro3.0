@@ -36,5 +36,7 @@
   "subject": "Subject",
   "message": "Message",
   "copy": "Send me copy",
-  "send": "Send"
+  "send": "Send",
+  "devMs": "Developer: Moshe Schwartzberg",
+  "desNoam": "Designer: Noam Rotenberg HYD"
 }
