@@ -8,6 +8,7 @@ import {
 } from "mdb-react-ui-kit";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.jpg";
+import "./footer.css";
 
 export default function App() {
   const { t } = useTranslation();
@@ -64,6 +65,11 @@ export default function App() {
               </p>
             </MDBCol>
           </MDBRow>
+          <p className="footerDev">
+            <a href="https://mosheschwartzberg.com">
+              Developer: Moshe Schwartzberg
+            </a>
+          </p>
         </MDBContainer>
       </section>
     </MDBFooter>
