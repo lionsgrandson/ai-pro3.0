@@ -4,14 +4,13 @@
   "validation": "Validation",
   "engineering": "Engineering",
   "repair services": "Repair Services",
-  "contact": "contact",
+  "contact": "Contact",
   "slogen": "Your Accuracy Our Technology",
   "vision": "Vision",
-  "vision_text1": "Our vision is to access the calibration, engineering, and validation services for the industry in a holistic manner.",
-  "vision_text2": "Our vision is based on emphasizing the customer's needs in all aspects.",
-  "vision_text3": "All this in a holistic response - without the need for the customer to deal with additional factors and additional tasks",
-  "vision_text4": "The main aspect is an optimal solution to the client's needs - and accordingly and subsequently compliance with the budget.",
-  "vision_text5": "Solutions with “Turn Key” method - the product or the needs at the end of the process are ready for immediate use.",
+  "vision_text1": "Our vision is to transform the customer's experience of accessing critical industrial services.",
+  "vision_text2": "We're dedicated to providing comprehensive calibration, engineering, and validation solutions designed with the customer's ultimate convenience and success in mind. ",
+  "vision_text3": "We're committed to understanding customer needs, delivering optimal, budget-friendly results that align perfectly with their requirements.",
+  "vision_text4": "Experience the freedom of a truly streamlined process, where we handle every detail, ensuring the customer's final deliverables are immediately ready to empower the customer's operations.",
   "mission": "Mission",
   "mission_text1": "Our mission is to bring the customer all the detailed information to make a decision about the exact need,All this in a professional, efficient and fast manner while emphasizing the economic aspect.",
   "mission_text2": "The mission is based on 3 main pillars bases:",
@@ -38,5 +37,6 @@
   "copy": "Send me copy",
   "send": "Send",
   "devMs": "Developer: Moshe Schwartzberg",
-  "desNoam": "Designer: Noam Rotenberg HYD"
+  "desNoam": "Designer: Noam Rotenberg HYD",
+  "sending": "Sending..."
 }

@@ -82,13 +82,13 @@ export default function ContactForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <h1 className="mb-4">{t("Contact Us")}</h1>
+        <h1 className="mb-4">{t("contact")}</h1>
 
         {error && <div className="alert alert-danger">{error}</div>}
         {success && <div className="alert alert-success">{success}</div>}
 
         <MDBInput
-          label={t("Name")}
+          label={t("name")}
           value={name}
           wrapperClass="mb-4"
           contrast
@@ -98,7 +98,7 @@ export default function ContactForm() {
 
         <MDBInput
           type="email"
-          label={t("Email")}
+          label={t("email")}
           value={email}
           wrapperClass="mb-4"
           contrast
@@ -107,7 +107,7 @@ export default function ContactForm() {
         />
 
         <MDBInput
-          label={t("Subject")}
+          label={t("subject")}
           value={subject}
           wrapperClass="mb-4"
           contrast
@@ -116,7 +116,7 @@ export default function ContactForm() {
         />
 
         <MDBTextArea
-          label={t("Message")}
+          label={t("message")}
           value={message}
           wrapperClass="mb-4"
           contrast
@@ -125,7 +125,7 @@ export default function ContactForm() {
         />
 
         <MDBBtn color="primary" block type="submit" disabled={loading}>
-          {loading ? t("Sending...") : t("Send")}
+          {loading ? t("דending") : t("send")}
         </MDBBtn>
       </form>
     </div>
