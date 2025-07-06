@@ -1,5 +1,6 @@
 import React from "react";
-import Videobg from "../../assets/firstVideoFrame.png";
+
+import Videobg from "../../assets/video_home_com.mp4";
 import { useTranslation } from "react-i18next";
 
 export default function Lcp() {
