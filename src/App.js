@@ -13,7 +13,11 @@ import { FloatingWhatsApp } from "react-floating-whatsapp";
 function App() {
   return (
     <div>
-      <FloatingWhatsApp phoneNumber="972505100018" accountName="AI Pro" />
+      <FloatingWhatsApp
+        phoneNumber="972505100018"
+        accountName="AI Pro"
+        avatar="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Diego_Comic-Con_2024_Masquerade_-_Cosplay_of_Batman_3.jpg/960px-San_Diego_Comic-Con_2024_Masquerade_-_Cosplay_of_Batman_3.jpg"
+      />
       <Header />
       <Routes>
         <Route exact path="/ai-pro-temp/" element={<Home />} />
