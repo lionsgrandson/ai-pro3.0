@@ -70,7 +70,6 @@ export default function Home() {
               <p>{t("vision_text2")}</p>
               <p>{t("vision_text3")}</p>
               <p>{t("vision_text4")}</p>
-              {/* <p>{t("vision_text5")}</p> */}
             </div>
             <div style={{ height: "5vmin" }}></div>
           </div>
@@ -85,10 +84,6 @@ export default function Home() {
             <div style={text_style}>
               <p>{t("mission_text1")}</p>
               <p>{t("mission_text2")}</p>
-              <p>{t("mission1")}</p>
-              <p>{t("mission2")}</p>
-              <p>{t("mission3")}</p>
-              <p>{t("mission_text3")}</p>
             </div>
           </div>
         </div>
