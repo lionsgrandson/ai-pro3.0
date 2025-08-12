@@ -28,7 +28,7 @@ export default function ContactForm() {
   };
 
   useEffect(() => {
-    emailjs.init("aS_Kd2on0E1C1dTBv"); // Replace with your EmailJS public key
+    emailjs.init("Caz3jbRmhcS9bc1wD"); // Replace with your EmailJS public key
   }, []);
 
   const handleSubmit = async (e) => {
@@ -46,8 +46,8 @@ export default function ContactForm() {
       return;
     }
 
-    const serviceId = "service_f6s9o6x"; // Replace with your EmailJS service ID
-    const templateId = "template_jux7c9h"; // Replace with your EmailJS template ID
+    const serviceId = "service_198gv7r"; // Replace with your EmailJS service ID
+    const templateId = "template_unhwwxa"; // Replace with your EmailJS template ID
 
     try {
       setLoading(true);

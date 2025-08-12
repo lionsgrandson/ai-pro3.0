@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -9,17 +9,36 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ img_url, kind, linkArr }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 900);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleCardClick = () => {
+    if (isMobile) {
+      setActive((prev) => !prev);
+    }
+  };
+
   const handleSendClick = () => {
     navigate(linkArr);
   };
+
   return (
     <div
-      className="cardcontainer cardImg"
+      className={`cardcontainer cardImg ${isMobile && active ? "active" : ""}`}
       style={{ backgroundImage: `url(${img_url})` }}
+      onClick={handleCardClick}
     >
-      <div className="card-text-content">
-        <h4 className="h4TextCard card-text-content">{t(kind)}</h4>
-        <p className="pCardText card-text-content">{t(`${kind} home text`)}</p>
+      <div className="card-text-content-wrapper">
+        <h4 className="h4TextCard">{t(kind)}</h4>
+        <p className="pCardText">{t(`${kind} home text`)}</p>
         <Stack
           direction="row"
           spacing={2}
@@ -32,7 +51,10 @@ export default function Card({ img_url, kind, linkArr }) {
           <Button
             variant="contained"
             endIcon={<ArrowForwardIcon />}
-            onClick={handleSendClick}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent toggling active state
+              handleSendClick();
+            }}
           >
             Read More
           </Button>
