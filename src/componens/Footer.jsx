@@ -67,6 +67,7 @@ export default function App() {
           </MDBRow>
           <p className="footerDev">
             <a href="https://mosheschwartzberg.com">{t("devMs")}</a>
+            <span className="footerDivider">|</span>
             <p>{t("desNoam")}</p>
           </p>
         </MDBContainer>

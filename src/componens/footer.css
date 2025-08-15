@@ -2,7 +2,54 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
+
+/* Keep links white as before */
+a {
+  color: white;
+}
+
+/* Small divider styling for desktop */
+.footerDivider {
+  color: white;
+}
+
+/* Laptop / smaller desktops */
+@media (max-width: 1200px) {
+  .footerDev {
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 992px) {
+  .footerDev {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footerDivider {
+    display: none;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+  .footerDev {
+    font-size: 0.85rem;
+    padding: 10px 0;
+  }
+
+  .footerDev a {
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+
 a {
   color: white;
 }

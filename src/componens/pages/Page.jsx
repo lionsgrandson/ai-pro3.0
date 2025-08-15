@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Footer from "../Footer";
 
 export default function Page({ kind, img_url }) {
   const { t, i18n } = useTranslation();
@@ -8,31 +9,49 @@ export default function Page({ kind, img_url }) {
     fontStyle: "italic",
     fontSize: "large",
     textShadow: "1px 1px 1px rgb(180, 180, 180)",
-    fontFamily: "system-ui sans-serif",
+    fontFamily: "system-ui, sans-serif",
     color: "white",
+    maxWidth: "900px",
+    padding: "0 20px",
+    textAlign: "center",
   };
+
   document.body.dir = i18n.dir();
 
   return (
     <div
-      className="col12 d-flex flex-column flex-md-row"
-      style={{ height: "100vm0in" }}
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <div className="col-12 col-md-4" style={{ height: "100vmin" }}>
-        <img src={img_url} style={{ width: "100vw" }} />
+      {/* Main content with background image */}
+      <div
+        style={{
+          flex: 1,
+          backgroundImage: `url(${img_url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "40px 0",
+        }}
+      >
+        <h1
+          style={{
+            borderBottom: "1px solid",
+            color: "white",
+            marginBottom: "20px",
+            textAlign: "center",
+          }}
+        >
+          {t(kind)}
+        </h1>
+        <p style={text_style}>{t(`${kind} page text`)}</p>
       </div>
 
-      <div className="col-12 col-md-8 d-flex flex-column align-items-center justify-content-center">
-        <div
-          className="mt-5 mb-5 mt-md-0 mb-md-0"
-          style={{ width: "70vmin", height: "100vimn" }}
-        >
-          <h1 style={{ borderBottom: "1px solid", color: "white" }}>
-            {t(kind)}
-          </h1>
-          <p style={text_style}>{t(`${kind} page text`)}</p>
-        </div>
-      </div>
+      {/* Footer stays at the bottom */}
+      <Footer />
     </div>
   );
 }
