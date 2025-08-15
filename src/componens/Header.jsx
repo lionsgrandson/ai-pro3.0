@@ -41,11 +41,14 @@ export default function Header() {
       >
         <Navbar.Brand>
           <div style={{ marginLeft: "20px" }}>
-            <img
-              src={logo_cut}
-              style={{ width: "40px", borderRadius: "50%" }}
-              alt="brand logo"
-            />
+            <a href="/ai-pro-temp">
+              {/* TODO when changing the links back remove the ai-pro0temp */}
+              <img
+                src={logo_cut}
+                style={{ width: "40px", borderRadius: "50%" }}
+                alt="brand logo"
+              />
+            </a>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle
