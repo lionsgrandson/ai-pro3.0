@@ -9,9 +9,6 @@ import {
   validation_img_url,
   low,
   isoImg_url,
-  accreditedSecond,
-  accredited,
-  accreditedGreen,
   firstImage,
 } from "../../assets";
 
@@ -40,7 +37,6 @@ export default function Home() {
       <div
         className="vision col-12 d-flex flex-md-row "
         style={{
-          height: "",
           backgroundImage: `url(${firstImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -51,13 +47,13 @@ export default function Home() {
         <div
           className="textvisin col-12 col-md-6 d-flex flex-row"
           style={{
-            padding: "20vmin",
-            paddingBottom: "5vmin",
+            padding: "15vmin 20vmin 5vmin 20vmin", // more balanced padding
             width: "100vw",
             flexWrap: "wrap",
+            position: "relative",
           }}
         >
-          <div style={{ width: "max-content" }}>
+          <div style={{ width: "max-content", marginRight: "18%" }}>
             <h2>{t("vision")}</h2>
             <div
               className="col-12 d-flex align-items-center justify-content-center"
@@ -73,7 +69,15 @@ export default function Home() {
             </div>
             <div style={{ height: "5vmin" }}></div>
           </div>
-          <div style={{ width: "max-content" }}>
+
+          {/* ISO image floated to the right */}
+          <img
+            className="isoCert"
+            src={isoImg_url}
+            alt="ISO/IEC 17025:2017 certified"
+          />
+
+          <div style={{ width: "max-content", marginTop: "3vmin" }}>
             <h2>{t("mission")}</h2>
             <div
               className="col-12 d-flex align-items-center justify-content-center"
@@ -97,18 +101,6 @@ export default function Home() {
         }}
       ></div>
 
-      <div className="divCert">
-        <img
-          className="imgCert"
-          src={isoImg_url}
-          alt="ISO/IEC 17025:2017 certified"
-        />
-        <img
-          className="imgCert"
-          src={accreditedSecond}
-          alt="Accredited certified Yellow"
-        />
-      </div>
       <div
         className="cards d-flex justify-content-center col-12 cardDiv"
         style={{ margin: "0" }}
