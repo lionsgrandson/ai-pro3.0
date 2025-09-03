@@ -1,8 +1,8 @@
 {
   "name": "ai-pro",
-  "version": "3.1.0",
+  "version": "4.1.0",
   "private": true,
-  "homepage": "/ai-pro-temp/",
+  "homepage": "/",
   "dependencies": {
     "@babel/register": "^7.23.7",
     "@emailjs/browser": "^4.1.0",
