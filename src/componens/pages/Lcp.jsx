@@ -22,7 +22,7 @@ export default function Lcp() {
     <div className=" d-flex flex-column align-items-center col-12">
       <video src={Videobg} autoPlay loop muted className="videoHeader" />
       <div
-        className="col-12 position-absolute flex-column justify-content-around d-flex align-items-center"
+        className="col-12 position-absolute flex-column justify-content-around d-flex align-items-center lcpOverlay"
         style={{
           padding: "10vh",
           objectFit: "cover",
@@ -30,7 +30,7 @@ export default function Lcp() {
           height: "100vh",
         }}
       >
-        <div className="text-light" style={{ fontSize: "30px" }}>
+        <div className="text-light lcpText" style={{ fontSize: "30px" }}>
           <h1 style={slogan_style}>{t("slogen")}</h1>
         </div>
       </div>

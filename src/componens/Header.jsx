@@ -1,7 +1,7 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { logo_cut, israel_color, usa_color } from '../assets'
 import { useTranslation } from 'react-i18next'
 import {
@@ -13,6 +13,7 @@ import {
 } from 'mdb-react-ui-kit'
 export default function Header() {
   const [expanded, setExpanded] = useState(false)
+  const location = useLocation()
   const { t, i18n } = useTranslation()
 
   const dir = i18n.dir()
@@ -21,15 +22,12 @@ export default function Header() {
     i18n.changeLanguage(lng)
   }
 
+  useEffect(() => {
+    setExpanded(false)
+  }, [location.pathname])
+
   return (
-    <div
-      style={{
-        direction: 'rtl',
-        position: 'fixed',
-        width: ' 100vw',
-        zIndex: '1',
-      }}
-    >
+    <div className='siteHeader' style={{ direction: 'rtl' }}>
       <Navbar
         collapseOnSelect
         expand='md'
@@ -37,6 +35,7 @@ export default function Header() {
         variant='light'
         expanded={expanded}
         id='togNav'
+        className='mainNavbar'
         style={{ direction: dir, flexWrap: 'wrap' }}
       >
         <Navbar.Brand>
@@ -57,7 +56,7 @@ export default function Header() {
           onClick={() => setExpanded(expanded ? false : 'expanded')}
         />
         <Navbar.Collapse id='responsive-navbar-nav' style={{ direction: dir }}>
-          <Nav className='me-auto my-2 my-lg-0 text-secondary d-flex align-items-center col-10'>
+          <Nav className='headerNavLinks me-auto my-2 my-lg-0 text-secondary d-flex align-items-center col-10'>
             <Nav.Link as={Link} to='/' className='test2'>
               <strong>{t('home').toUpperCase()}</strong>
             </Nav.Link>
@@ -97,7 +96,7 @@ export default function Header() {
           </Nav>
 
           <div
-            className='col-3 col-md-1 d-flex align-items-center justify-content-center justify-content-md-evenly'
+            className='headerLangSwitch col-3 col-md-1 d-flex align-items-center justify-content-center justify-content-md-evenly'
             style={{
               marginRight: '20px',
               marginLeft: '20px',

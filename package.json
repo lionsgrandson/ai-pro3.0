@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap",
+    
     "ssr": "npm run build && node server/index.js"
   },
   "eslintConfig": {

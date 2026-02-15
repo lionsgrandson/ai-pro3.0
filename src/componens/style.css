@@ -4,6 +4,16 @@ body {
   overflow-x: clip;
 }
 
+.siteHeader {
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.appRoutes {
+  padding-top: 0;
+}
+
 .mainHome {
   width: 100%;
   height: 100vh;
@@ -134,6 +144,11 @@ label {
   max-width: 150px;
 }
 
+.lineWrap {
+  height: 5vh;
+  width: 10vw;
+}
+
 @media (max-width: 900px) {
   .isoCert {
     position: static;
@@ -141,5 +156,110 @@ label {
     margin: 3vmin auto;
     width: 35%;
     max-width: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .appRoutes {
+    padding-top: 56px;
+  }
+
+  .mainNavbar .navbar-collapse {
+    padding: 0 16px 12px;
+  }
+
+  .headerNavLinks {
+    width: 100%;
+    align-items: flex-start !important;
+  }
+
+  .headerNavLinks .nav-link {
+    padding: 0.45rem 0;
+  }
+
+  .headerLangSwitch {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    margin: 8px 20px 10px !important;
+  }
+
+  .videoHeader,
+  .contentHome,
+  .lcpOverlay {
+    height: 78vh !important;
+    min-height: 420px;
+  }
+
+  .lcpOverlay {
+    padding: 7vh 8vw !important;
+  }
+
+  .lcpText {
+    font-size: 24px !important;
+    text-align: center;
+  }
+
+  .visionContent {
+    padding: 13vmin 9vmin 8vmin !important;
+  }
+
+  .lineWrap {
+    width: 140px;
+  }
+
+  .contactSection {
+    min-height: 540px !important;
+    padding: 88px 16px 24px;
+  }
+
+  .contactForm {
+    max-width: 460px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .visionContent {
+    padding: 15vmin 7vmin 10vmin !important;
+  }
+
+  .visionContent > div {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .lineWrap {
+    width: 120px;
+  }
+
+  .contactSection {
+    min-height: 520px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .lcpOverlay {
+    min-height: 360px;
+    padding: 5vh 6vw !important;
+  }
+
+  .lcpText {
+    font-size: 20px !important;
+  }
+
+  .visionContent {
+    padding: 18vmin 6vmin 12vmin !important;
+  }
+
+  .lineWrap {
+    width: 100px;
+  }
+
+  .contactSection {
+    min-height: 500px !important;
+    padding-top: 82px;
+  }
+
+  .contactForm {
+    max-width: 100% !important;
   }
 }

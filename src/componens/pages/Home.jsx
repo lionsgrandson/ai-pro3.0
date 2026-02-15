@@ -35,7 +35,7 @@ export default function Home() {
       </Suspense>
 
       <div
-        className="vision col-12 d-flex flex-md-row "
+        className="vision visionSection col-12 d-flex flex-md-row "
         style={{
           backgroundImage: `url(${firstImage})`,
           backgroundRepeat: "no-repeat",
@@ -45,7 +45,7 @@ export default function Home() {
         }}
       >
         <div
-          className="textvisin col-12 col-md-6 d-flex flex-row"
+          className="textvisin visionContent col-12 col-md-6 d-flex flex-row"
           style={{
             padding: "15vmin 20vmin 5vmin 20vmin", // more balanced padding
             width: "100vw",
@@ -55,10 +55,7 @@ export default function Home() {
         >
           <div style={{ width: "max-content", marginRight: "18%" }}>
             <h2>{t("vision")}</h2>
-            <div
-              className="col-12 d-flex align-items-center justify-content-center"
-              style={{ height: "5vh", width: "10vw" }}
-            >
+            <div className="col-12 d-flex align-items-center justify-content-center lineWrap">
               <div className="line"></div>
             </div>
             <div style={text_style}>
@@ -79,10 +76,7 @@ export default function Home() {
 
           <div style={{ width: "max-content", marginTop: "3vmin" }}>
             <h2>{t("mission")}</h2>
-            <div
-              className="col-12 d-flex align-items-center justify-content-center"
-              style={{ height: "5vh", width: "10vw" }}
-            >
+            <div className="col-12 d-flex align-items-center justify-content-center lineWrap">
               <div className="line"></div>
             </div>
             <div style={text_style}>

@@ -71,10 +71,10 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="col-12" style={style}>
+    <div className="col-12 contactSection" style={style}>
       <form
         id="contact-form"
-        className="text-center"
+        className="text-center contactForm"
         style={{
           width: "100%",
           maxWidth: "400px",

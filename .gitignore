@@ -2,3 +2,8 @@ node_modules
 build
 *.zip
 *.docx
+# Added by ggshield
+.cache_ggshield
+
+# Added by ggshield
+.cache_ggshield

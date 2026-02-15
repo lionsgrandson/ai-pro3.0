@@ -66,6 +66,12 @@
     flex: 1 1 100%; /* Full width on mobile */
     max-width: none;
   }
+
+  .cardImg {
+    height: 52vh;
+    min-height: 320px;
+  }
+
   .cardcontainer.active .card-text-content-wrapper {
     opacity: 1;
   }
