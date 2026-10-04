@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MDBInput, MDBBtn, MDBTextArea } from "mdb-react-ui-kit";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
@@ -12,6 +12,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const submissionInProgress = useRef(false);
 
   const { t } = useTranslation();
 
@@ -28,11 +29,16 @@ export default function ContactForm() {
   };
 
   useEffect(() => {
-    emailjs.init("Caz3jbRmhcS9bc1wD"); // Replace with your EmailJS public key
+    emailjs.init({
+      publicKey: "Caz3jbRmhcS9bc1wD",
+      // Match EmailJS's one-request-per-second limit without using account quota.
+      limitRate: { id: "ai-pro-contact", throttle: 1000 },
+    });
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submissionInProgress.current) return;
     setError("");
     setSuccess("");
 
@@ -50,6 +56,7 @@ export default function ContactForm() {
     const templateId = "template_unhwwxa"; // Replace with your EmailJS template ID
 
     try {
+      submissionInProgress.current = true;
       setLoading(true);
       await emailjs.send(serviceId, templateId, {
         name,
@@ -64,8 +71,8 @@ export default function ContactForm() {
       setMessage("");
     } catch (err) {
       setError(t("Failed to send email. Please try again."));
-      console.error("EmailJS error:", err);
     } finally {
+      submissionInProgress.current = false;
       setLoading(false);
     }
   };
