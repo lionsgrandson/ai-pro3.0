@@ -6,7 +6,7 @@ export default function Page({ kind, img_url }) {
 
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      style={{ display: "flex", flexDirection: "column", minHeight: "calc(100svh - 64px)" }}
     >
       {/* Main content with background image */}
       <div
@@ -23,6 +23,7 @@ export default function Page({ kind, img_url }) {
         }}
       >
         <div
+          className="servicePageContent"
           style={{
             background: "rgba(0, 0, 0, 0.7)",
             padding: "30px",
@@ -42,12 +43,7 @@ export default function Page({ kind, img_url }) {
             {t(kind)}
           </h1>
           <p
-            style={{
-              fontStyle: "italic",
-              fontSize: "large",
-              textShadow: "1px 1px 1px rgb(180, 180, 180)",
-              fontFamily: "system-ui, sans-serif",
-            }}
+            className="servicePageText"
           >
             {t(`${kind} page text`)}
           </p>

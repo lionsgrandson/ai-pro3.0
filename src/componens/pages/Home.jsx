@@ -16,13 +16,6 @@ const Lcp = React.lazy(() => import("./Lcp"));
 export default function Home() {
   const { t } = useTranslation();
 
-  const text_style = {
-    fontStyle: "italic",
-    fontSize: "large",
-    textShadow: "1px 1px 1px rgb(180, 180, 180)",
-    fontFamily: "system-ui sans-serif",
-    paddingBottom: "15vmin",
-  };
 
   return (
     <div className="d-flex flex-column align-items-center col-12">
@@ -44,25 +37,19 @@ export default function Home() {
       >
         <div
           className="textvisin visionContent col-12 col-md-6 d-flex flex-row"
-          style={{
-            padding: "15vmin 20vmin 5vmin 20vmin", // more balanced padding
-            width: "100%",
-            flexWrap: "wrap",
-            position: "relative",
-          }}
+
         >
-          <div style={{ width: "max-content", marginRight: "18%" }}>
+          <div className="visionCopy">
             <h2>{t("vision")}</h2>
             <div className="col-12 d-flex align-items-center justify-content-center lineWrap">
               <div className="line"></div>
             </div>
-            <div style={text_style}>
+            <div className="homeBodyText">
               <p>{t("vision_text1")}</p>
               <p>{t("vision_text2")}</p>
               <p>{t("vision_text3")}</p>
               <p>{t("vision_text4")}</p>
             </div>
-            <div style={{ height: "5vmin" }}></div>
           </div>
 
           {/* ISO image floated to the right */}
@@ -72,12 +59,12 @@ export default function Home() {
             alt="ISO/IEC 17025:2017 certified"
           />
 
-          <div style={{ width: "max-content", marginTop: "3vmin" }}>
+          <div className="missionCopy">
             <h2>{t("mission")}</h2>
             <div className="col-12 d-flex align-items-center justify-content-center lineWrap">
               <div className="line"></div>
             </div>
-            <div style={text_style}>
+            <div className="homeBodyText">
               <p>{t("mission_text1")}</p>
               <p>{t("mission_text2")}</p>
             </div>

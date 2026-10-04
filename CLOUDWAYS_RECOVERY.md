@@ -14,9 +14,9 @@ to correct HTTPS directory redirects. Both messages were successfully submitted.
 The ticket is Open; only an automated acknowledgment has been received.
 
 The reviewed source was pushed to `security/malware-cleanup` for deployment.
-Main was not merged or modified. The deployed code is from commit `2a93ae5`
-(website code commit `4eb54b9`); subsequent recovery-document edits do not change
-the deployed website.
+Main was not merged or modified. The initial deployed code was from commit `2a93ae5`
+(website code commit `4eb54b9`). A subsequent desktop layout build was deployed
+on the same date; see the follow-up below.
 
 ## Findings
 
@@ -124,3 +124,19 @@ has been asked to remove the extra hop and preserve HTTPS in Location headers.
 Keep recovery copies until Cloudways provides scan results and any detected
 files or persistence are resolved. A clean static deployment and headers do
 not prove eradication of the original server infection.
+
+## Desktop layout deployment follow-up — 2026-10-04
+
+Deployed the Contact, Home and shared service-page layout fixes described in
+WEBSITE_REVIEW.md. Preserved the preceding clean deployment in
+`before-desktop-layout/` and a readable `before-desktop-layout.tar.gz` under the
+same private recovery directory. The new staged build is `desktop-build/`;
+its uploaded archive is `desktop-build.tar.gz`, SHA-256:
+`aebe0d2d724f400498bdf979b509ea1209fe0d36a326dcd070dbbebe4528767d`.
+
+The deployment checks verified the archive hash, 42-file staged inventory,
+readable backup and equality between stage and deployed files before completion.
+Cloudways permission reset completed, followed by cache purge. Live Contact
+serves `main.0fc21f69.js` and `main.97500ebb.css`; both language layouts were
+verified in the browser. The original malware scan/PHP/redirect requests remain
+pending; no additional support message or paid service was enabled.

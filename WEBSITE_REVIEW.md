@@ -82,3 +82,25 @@ pending provider scan. The notes below describe the earlier local review.
   prerendering would be a distinct routing/deployment change.
 - No hosting files were deleted, production deployment made or malware rescan
   performed. Follow SECURITY_RECOVERY.md before declaring the live site clean.
+
+## Desktop layout follow-up — 2026-10-04
+
+The desktop Hebrew contact form's MDB floating-label outlines were visibly
+misaligned. Replaced them with native inputs and persistent labels, keeping
+EmailJS payload, validation, submission guards and status behavior intact.
+The form now uses a bounded 640px panel, two columns for name/email on desktop,
+full-width subject/message, a six-row resizable message area, high-contrast
+fields and focus rings, and a full-width 48px-high submit button. Mobile fields
+stack into one column. Email text keeps left-to-right direction in Hebrew.
+
+Removed italic/shadow styling from service-page body text, aligned it to the
+reading direction and increased line spacing. Service-page height now accounts
+for the header. Replaced home Vision/Mission viewport-based padding and floating
+certificate positioning with a bounded grid and consistent gaps. Narrow screens
+stack the certificate and text.
+
+Production build, lint and all 21 existing tests pass. Desktop browser checks
+at 1440px cover all four service pages and English/Hebrew contact rendering;
+320px contact check shows stacked fields without horizontal overflow. No real
+email was sent. Changes deployed to Cloudways, permissions reset and cache
+purged. Live Contact in both languages and new main JS/CSS verified.

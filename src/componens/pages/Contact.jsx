@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MDBInput, MDBBtn, MDBTextArea } from "mdb-react-ui-kit";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import firstImage from "../../assets/firstVideoFrame.png"; // Updated import path
@@ -17,7 +16,6 @@ export default function ContactForm() {
   const { t } = useTranslation();
 
   const style = {
-    minHeight: "max(500px, 80vmin)",
     backgroundImage: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${firstImage})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -82,12 +80,7 @@ export default function ContactForm() {
         id="contact-form"
         aria-labelledby="contact-heading"
         aria-busy={loading}
-        className="text-center contactForm"
-        style={{
-          width: "100%",
-          maxWidth: "400px",
-          fontStyle: "italic",
-        }}
+        className="contactForm"
         onSubmit={handleSubmit}
       >
         <h1 id="contact-heading" className="mb-4">{t("contact")}</h1>
@@ -95,56 +88,31 @@ export default function ContactForm() {
         {error && <div className="alert alert-danger" role="alert">{error}</div>}
         {success && <div className="alert alert-success" role="status">{success}</div>}
 
-        <MDBInput
-          id="contact-name"
-          name="name"
-          autoComplete="name"
-          label={t("name")}
-          value={name}
-          wrapperClass="mb-4"
-          contrast
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
-        <MDBInput
-          id="contact-email"
-          name="email"
-          autoComplete="email"
-          type="email"
-          label={t("email")}
-          value={email}
-          wrapperClass="mb-4"
-          contrast
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <MDBInput
-          id="contact-subject"
-          name="subject"
-          label={t("subject")}
-          value={subject}
-          wrapperClass="mb-4"
-          contrast
-          onChange={(e) => setSubject(e.target.value)}
-          required
-        />
-
-        <MDBTextArea
-          id="contact-message"
-          name="message"
-          label={t("message")}
-          value={message}
-          wrapperClass="mb-4"
-          contrast
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        />
-
-        <MDBBtn color="primary" block type="submit" disabled={loading}>
+        <div className="contactFields">
+          <div className="contactField">
+            <label htmlFor="contact-name">{t("name")}</label>
+            <input id="contact-name" name="name" autoComplete="name"
+              value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+          <div className="contactField">
+            <label htmlFor="contact-email">{t("email")}</label>
+            <input id="contact-email" name="email" autoComplete="email" type="email" dir="ltr"
+              value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          <div className="contactField contactFieldFull">
+            <label htmlFor="contact-subject">{t("subject")}</label>
+            <input id="contact-subject" name="subject"
+              value={subject} onChange={(e) => setSubject(e.target.value)} required />
+          </div>
+          <div className="contactField contactFieldFull">
+            <label htmlFor="contact-message">{t("message")}</label>
+            <textarea id="contact-message" name="message" rows={6}
+              value={message} onChange={(e) => setMessage(e.target.value)} required />
+          </div>
+        </div>
+        <button className="contactSubmit" type="submit" disabled={loading}>
           {loading ? t("sending") : t("send")}
-        </MDBBtn>
+        </button>
       </form>
     </div>
   );

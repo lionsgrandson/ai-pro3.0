@@ -51,9 +51,6 @@ body {
   transform-origin: left;
   animation: animate 4s linear;
 }
-label {
-  color: white !important;
-}
 @keyframes animate {
   0%,
   25% {
@@ -320,4 +317,91 @@ label {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Plain labels keep Hebrew and English field borders aligned. */
+.contactSection {
+  min-height: calc(100svh - 64px);
+  padding: clamp(32px, 5vw, 64px) 24px;
+  background-position: center;
+}
+.contactForm {
+  width: 100%;
+  max-width: 640px;
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 12px;
+  background: rgba(10, 20, 25, .88);
+  box-shadow: 0 12px 36px rgba(0,0,0,.2);
+  font-style: normal;
+}
+.contactForm h1 { text-align: center; margin-bottom: 28px !important; }
+.contactFields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.contactField { min-width: 0; text-align: start; }
+.contactFieldFull { grid-column: 1 / -1; }
+.contactField label { display: block; color: #fff; font-weight: 600; margin-bottom: 8px; }
+.contactField input, .contactField textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #b9c9cd;
+  border-radius: 5px;
+  background: #fff;
+  color: #172b33;
+  font: inherit;
+  line-height: 1.5;
+}
+.contactField textarea { min-height: 160px; resize: vertical; }
+.contactField input:focus, .contactField textarea:focus { outline: 3px solid #55d5df; outline-offset: 2px; }
+.contactSubmit {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: #007078;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+}
+.contactSubmit:hover { background: #005d65; }
+.contactSubmit:disabled { opacity: .65; cursor: wait; }
+.contactSubmit:focus-visible { outline-color: #55d5df; }
+.servicePageText { font-size: 1.125rem; line-height: 1.8; text-align: start; margin-bottom: 0; }
+.servicePageContent h1 { padding-bottom: 16px; }
+@media (max-width: 1199px) { .contactForm { max-width: 640px !important; } }
+@media (max-width: 576px) {
+  .contactSection { padding: 24px 16px; }
+  .contactFields { grid-template-columns: minmax(0, 1fr); }
+  .contactForm { padding: 24px 20px; }
+}
+
+.visionSection { justify-content: center; }
+.visionContent {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 32px 48px;
+  max-width: 1120px;
+  width: 100%;
+  margin-inline: auto;
+  padding: 64px 32px !important;
+}
+.visionCopy, .missionCopy { min-width: 0; grid-column: 1; width: 100% !important; }
+.visionContent .isoCert {
+  position: static;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  width: 100%;
+  min-width: 0;
+  max-width: 160px;
+  margin: 0;
+}
+.homeBodyText { font-size: 1.125rem; line-height: 1.8; }
+.homeBodyText p:last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .visionContent { grid-template-columns: minmax(0, 1fr); padding: 40px 24px !important; gap: 32px; }
+  .visionContent .isoCert { grid-column: 1; grid-row: auto; justify-self: center; }
 }
