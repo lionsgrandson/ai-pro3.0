@@ -53,3 +53,24 @@ footer a {
 footer a {
   color: white;
 }
+
+.siteFooter { color: #fff; text-align: start; padding-bottom: 24px; }
+.footerCompanyName, .footerContactRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: start;
+}
+.siteFooter .footerIcon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+.footerContactRow a, .footerContactRow span { min-width: 0; overflow-wrap: anywhere; }
+.footerPhoneColumn { padding-top: 44px; }
+@media (max-width: 767px) {
+  .siteFooter { text-align: center; }
+  .footerPhoneColumn { padding-top: 0; }
+  .footerCompanyName, .footerContactRow { justify-content: center; }
+}

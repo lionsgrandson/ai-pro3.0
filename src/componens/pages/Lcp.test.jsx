@@ -1,19 +1,22 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import Lcp from './Lcp';
 
 jest.mock('react-i18next', () => ({ useTranslation: () => ({ t: (key) => key, i18n: { dir: () => 'ltr' } }) }));
 
-test('background video can be paused and resumed', () => {
+test('decorative video stops within five seconds without a visible control', () => {
+  jest.useFakeTimers();
   render(<Lcp />);
-  fireEvent.click(screen.getByRole('button', { name: 'pause video' }));
+  expect(screen.queryByRole('button')).not.toBeInTheDocument();
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1);
+  act(() => jest.advanceTimersByTime(5000));
   expect(HTMLMediaElement.prototype.pause).toHaveBeenCalled();
-  fireEvent.click(screen.getByRole('button', { name: 'play video' }));
-  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2);
+  jest.useRealTimers();
 });
 
-test('reduced motion starts with a paused video', () => {
+test('reduced motion keeps the video paused without starting playback', () => {
   window.matchMedia.mockReturnValue({ matches: true });
   render(<Lcp />);
-  expect(screen.getByRole('button', { name: 'play video' })).toBeInTheDocument();
+  expect(screen.queryByRole('button')).not.toBeInTheDocument();
+  expect(HTMLMediaElement.prototype.pause).toHaveBeenCalled();
   expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled();
 });

@@ -104,3 +104,20 @@ at 1440px cover all four service pages and English/Hebrew contact rendering;
 320px contact check shows stacked fields without horizontal overflow. No real
 email was sent. Changes deployed to Cloudways, permissions reset and cache
 purged. Live Contact in both languages and new main JS/CSS verified.
+
+## Footer and background-video follow-up — 2026-10-04
+
+Removed the background-video play/pause button as requested. The decorative
+video now stops after five seconds without looping; reduced-motion preferences
+still prevent playback. Updated the two video tests to check these behaviors.
+
+Replaced all seven footer font icons with bundled SVG icons. Contact rows use
+flex layout with a 12px gap and a fixed 22px icon column, avoiding physical
+right-margin spacing in RTL. Email, phone numbers, LinkedIn and the company
+name preserve LTR text direction. Footer columns align to the reading direction
+on desktop and center on mobile. Business values and link destinations remain
+unchanged. Hebrew/English desktop and Hebrew 375px mobile layouts checked.
+
+Production build, ESLint and all 21 tests pass. The update was deployed with a
+verified private backup, 42-file build comparison, ownership reset and cache
+purge. Live footer and absent video control were verified after deployment.

@@ -21,7 +21,12 @@ export default function Lcp() {
   useEffect(() => {
     const video = videoRef.current;
     if (paused) video.pause();
-    else video.play()?.catch(() => setPaused(true));
+    else {
+      video.play()?.catch(() => setPaused(true));
+      // Keep decorative motion brief now that the manual control is removed.
+      const stop = window.setTimeout(() => setPaused(true), 5000);
+      return () => window.clearTimeout(stop);
+    }
   }, [paused]);
 
   const slogan_style = {
@@ -37,7 +42,7 @@ export default function Lcp() {
   return (
     <div className="heroSection d-flex flex-column align-items-center col-12">
       <video ref={videoRef} src={Videobg} poster={poster} autoPlay={!paused}
-        playsInline loop muted aria-hidden="true" className="videoHeader"
+        playsInline muted aria-hidden="true" className="videoHeader"
         onPlay={() => setPaused(false)} onPause={() => setPaused(true)} />
       <div
         className="col-12 position-absolute flex-column justify-content-around d-flex align-items-center lcpOverlay"
@@ -52,9 +57,7 @@ export default function Lcp() {
           <h1 style={slogan_style}>{t("slogen")}</h1>
         </div>
       </div>
-      <button type="button" className="videoToggle" onClick={() => setPaused((value) => !value)}>
-        {t(paused ? 'play video' : 'pause video')}
-      </button>
+
     </div>
   );
 }

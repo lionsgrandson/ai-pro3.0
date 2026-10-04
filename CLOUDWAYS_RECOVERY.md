@@ -140,3 +140,15 @@ Cloudways permission reset completed, followed by cache purge. Live Contact
 serves `main.0fc21f69.js` and `main.97500ebb.css`; both language layouts were
 verified in the browser. The original malware scan/PHP/redirect requests remain
 pending; no additional support message or paid service was enabled.
+
+## Footer/video deployment follow-up — 2026-10-04
+
+Deployed the requested footer RTL icon fix and removal of the video button.
+Previous live files are retained in `before-footer-layout/` and a readable
+`before-footer-layout.tar.gz` in the private recovery directory. Staged files:
+`footer-build/`; uploaded archive: `footer-build.tar.gz`, SHA-256:
+`67fbecb52d59ed397883b8b9b8d431e1a0e0bdf630710fe0a04363f9c70f9db1`.
+SSH host identity, upload checksum, readable backup, 42-file inventory and stage
+comparison passed. Cloudways ownership reset and site cache purge followed.
+Live assets are `main.eb523a54.js` and `main.d352ccf4.css`. No further support
+messages, add-ons or credential changes were made.
