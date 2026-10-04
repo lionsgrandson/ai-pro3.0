@@ -3,6 +3,10 @@
 Reviewed 2026-10-04 after the security cleanup. These are separately committed
 site improvements; the production malware recovery remains outstanding.
 
+Later on 2026-10-04 these changes were deployed to Cloudways. See
+CLOUDWAYS_RECOVERY.md for the verified deployment, backups, live settings and
+pending provider scan. The notes below describe the earlier local review.
+
 ## Fixes
 
 - The logo linked to the nonexistent `/ai-pro-temp` route. It now links home

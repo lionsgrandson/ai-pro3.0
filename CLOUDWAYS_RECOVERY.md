@@ -1,74 +1,126 @@
 # Cloudways recovery work — 2026-10-04
 
-## Current status
+## Status
 
-The live application is **not yet confirmed malware-free**. Repository cleanup
-and website improvements are committed locally on `security/malware-cleanup`;
-they have not been deployed or pushed.
+The reviewed website is now deployed to the live AIpro application. The old
+webroot was backed up privately and replaced, rather than overwritten in place.
+**A fresh provider malware scan is pending; the server is not yet confirmed
+malware-free.**
 
-The authenticated Cloudways dashboard identifies application **AIpro**
-(5829325), domain `ai-pro.co.il`, on server **CodeCrafter** (1497511).
-Its application folder is `uvhfvnwyzz`, webroot `public_html/`, and selected
-web stack is **Lightning Stack (Nginx)**. Apache `.htaccess` suggestions in
-SECURITY_RECOVERY.md must not be assumed effective on this stack.
+[Cloudways ticket #984182](https://tickets.cloudways.com/hc/en-us/requests/984182)
+requests a scan, detected paths/signatures and application-specific PHP execution
+advice. The owner approved the exact message and a follow-up asking Cloudways
+to correct HTTPS directory redirects. Both messages were successfully submitted.
+The ticket is Open; only an automated acknowledgment has been received.
 
-## Changes applied in Cloudways
+The reviewed source was pushed to `security/malware-cleanup` for deployment.
+Main was not merged or modified. The deployed code is from commit `2a93ae5`
+(website code commit `4eb54b9`); subsequent recovery-document edits do not change
+the deployed website.
 
-Three application Header Rules were added with Set and Always Apply enabled:
+## Findings
 
-| Header | Value | Purpose |
-| --- | --- | --- |
-| X-Content-Type-Options | nosniff | Prevent browsers interpreting files as a different content type. |
-| Referrer-Policy | strict-origin-when-cross-origin | Avoid sending full page paths to other sites. |
-| Permissions-Policy | camera=(), microphone=(), geolocation=() | Disable device features this static website does not use. |
+- Application **AIpro** (5829325), domain `ai-pro.co.il`, server **CodeCrafter**
+  (1497511), folder `uvhfvnwyzz`, webroot `public_html/`, **Lightning Stack
+  (Nginx)**. Apache .htaccess examples in SECURITY_RECOVERY.md do not apply here.
+- Initial webroot: **51 files, about 27 MB**, with October 2025 prerendered HTML
+  and obsolete bundles alongside February 2026 files. Earlier uploads
+  demonstrably left stale files behind.
+- No PHP/PHTML/PHAR files, dotfiles or symlinks were found in the initial
+  webroot. No matching server-side/persistence files were found in application
+  private_html and tmp in a three-level traversal. These checks are not a full
+  malware scan.
+- Cloudways Advanced Cron and the signed-in master user's crontab were empty.
+  Root/system jobs and sibling applications were not fully audited.
+- WAF incidents show suspicious requests. Retained access logs also contain
+  HTTP 200 responses for WordPress/PHP paths absent from the current webroot.
+  Status codes alone cannot establish PHP execution or a successful exploit.
+- Imunify360 is installed, but its CLI requires root; non-interactive sudo
+  requires credentials. No scan or automatic cleanup was run.
+- Paid Malware Protection stays disabled as explicitly requested. No add-on,
+  subscription, support upgrade or hosting upgrade was purchased.
 
-Cloudways confirmed that Web Rules were updated successfully. An independent
-HTTPS HEAD request to the public homepage returned HTTP 200 and all three
-headers. Before applying nosniff, the existing live JS and CSS returned 200
-with application/javascript and text/css respectively.
+## Backups and deployment
 
-An on-demand application backup was requested. Cloudways showed backup in
-progress, then returned to its normal backup controls. The latest restore
-point visibly listed afterward was **2026-10-04 02:52:12 UTC**, older than this
-request. Therefore the new backup's completion is **not verified**. The listed
-restore point has not been tested by restoring production.
+Private recovery directory: `/home/master/aipro-recovery-20261004`, verified
+mode **700**, outside application webroots.
 
-## Findings and limits
+- `public_html-before.tar.gz`: readable archive of all 51 original files,
+  with verified listing. SHA-256:
+  `4bda3520bbc986e4af6eeaca9b4ee71eda3d0661935d35aeecd1b8281226e796`.
+- `old-live/`: all original live files, moved intact rather than deleted.
+- `first-transfer/`: retained transfer/rollback state. Initial rsync could not
+  set the provider-owned root's timestamp. Originals were restored, then
+  deployment succeeded using --omit-dir-times.
+- `reviewed-build.tar.gz` and `reviewed_build/`: clean uploaded build/staging.
+  Upload SHA-256 verified on server:
+  `6d5aa8cf1b11e6f8cabf08495880efa0004b3bdaa96d6c45e2f33a743ead9bc8`.
+- `application-logs-readable.tar.gz`: verified listing of 190 entries.
+  Unreadable php-app.slow.log was explicitly excluded; provider access is
+  required for it. An earlier partial archive is retained separately.
+- `source/`: reviewed branch checkout kept private. Source, Git, dependencies,
+  credentials and recovery archives were not deployed publicly.
 
-- The Incidents screen lists suspicious WAF requests, including webshell,
-  WordPress and React/Next.js attack signatures. These are request detections,
-  not evidence that this application's files contain those products or malware.
-- Malware Protection is disabled. Its advertised price is $4/month per
-  application. The owner explicitly requested keeping the paid add-on disabled;
-  no subscription was enabled and no automatic cleanup was run.
-- The application's Advanced Cron editor was empty. This does not establish
-  that server-level scheduled tasks or other persistence mechanisms are absent.
-- SSL auto-renewal was already enabled, with certificate expiry displayed as
-  2026-11-17. No SSL changes were needed or applied.
-- No Header Rules or Rewrite Rules were configured before this work. Only the
-  three header rules above were added; routing and web stack were not changed.
-- The browser SSH terminal initially presented a certificate warning. The owner
-  handled the warning and signed in. The resulting shell was the different
-  application account `vkkchjapjd`; read-only access to AIpro's directory was
-  denied. No sibling application's files were inspected or changed.
-- No live files were quarantined, deleted or replaced. No live malware scan,
-  credential rotation, cache purge or clean-build deployment was completed.
-- During the login handoff, a credential appeared to be entered in the visible
-  username field. The owner was asked to cancel that attempt, use the correct
-  username, and rotate the exposed credential themselves. No credential value
-  is recorded in this report.
+Production had about 129 MB of available RAM, so the previously tested local
+build was uploaded through SFTP instead of compiling on production. Its SSH
+host fingerprint was verified against the authenticated browser terminal.
+Existing credentials were used without creating a key/account or saving a
+password to disk.
 
-## Next required steps
+The build has 37 files. Five clean route entry files, identical to the reviewed
+root index.html, serve direct visits to engineering, validation, calibration,
+repair and contact. **Final live inventory: 42 files.** Directory comparison
+confirms equality with staged build plus these route entries. Old assets and
+prerendered pages are no longer public.
 
-Use AIpro's existing SSH credentials or the server's Master Credentials to
-inspect the correct directory. Obtain the original provider malware report
-with detected paths/signatures, verify a readable backup outside public roots,
-and compare the live files with the clean build. Quarantine unexplained files
-outside webroots before deploying the reviewed build. Inspect application and
-server persistence and access logs, and obtain a fresh provider malware scan.
-Rotate the former PHP mailer's SMTP password if still valid; do not restore
-that obsolete mailer.
+A Cloudways on-demand backup was also requested, but its new restore point was
+not verified. The dashboard listed an older 2026-10-04 02:52:12 UTC backup.
+The verified private archive above supplies recovery for this deployment.
 
-The applied headers improve browser protection; they do not remove malware.
-See SECURITY_RECOVERY.md for repository security findings and WEBSITE_REVIEW.md
-for spelling, accessibility, SEO and mobile fixes and validation.
+## Live configuration changes
+
+All Header Rules use Set and Always Apply.
+
+| Header | Value |
+| --- | --- |
+| X-Content-Type-Options | nosniff |
+| Referrer-Policy | strict-origin-when-cross-origin |
+| Permissions-Policy | camera=(), microphone=(), geolocation=() |
+| Strict-Transport-Security | max-age=31536000 |
+
+HSTS has no includeSubDomains or preload. SSL auto-renewal was already enabled,
+with expiry displayed as 2026-11-17; no certificate changes were applied.
+
+Enabled HTTPS Redirection, reset file/folder ownership and permissions to the
+existing application owner, and purged site cache. Added a permanent redirect
+from `^/ai-pro-temp/?$` to `/`, retaining query strings.
+
+Static route entries replaced a tested internal rewrite that conflicted with
+Cloudways' forced HTTPS rule. Requests preserve the intended page. A provider
+directory-redirect issue remains: slashless HTTPS page URLs first redirect to
+an HTTP trailing-slash URL, which HTTPS Redirection upgrades again. HSTS
+protects subsequent browser requests. Final pages work on HTTPS, but Cloudways
+has been asked to remove the extra hop and preserve HTTPS in Location headers.
+
+## Validation and remaining work
+
+- The reviewed build previously passed clean installation, production build,
+  ESLint and **21 tests**. WEBSITE_REVIEW.md records bilingual/mobile and
+  accessibility checks; these are not WCAG certification.
+- Public homepage, five pages, JS/CSS, logo, sitemap and robots checked.
+  Expected pages/assets return 200 after redirects; unknown paths and obsolete
+  main.eba9b18e.js return 404. Correct JS/CSS MIME types verified.
+- Browser verification confirms English/Hebrew Contact labels, title and
+  language switching. No actual email or WhatsApp message was sent.
+- Fresh provider scan, root/server persistence review, PHP handler protection
+  and directory redirect correction remain pending. PHP was not disabled
+  globally because another application shares the server.
+- The earlier login handoff exposed a credential in the visible username field.
+  The owner was asked to rotate it themselves. Rotate the obsolete PHP mailer's
+  SMTP password too if still valid. No credential values are recorded here.
+- Real EmailJS delivery/dashboard restrictions and the suspiciously long
+  phone/fax number still need owner verification.
+
+Keep recovery copies until Cloudways provides scan results and any detected
+files or persistence are resolved. A clean static deployment and headers do
+not prove eradication of the original server infection.
