@@ -7,16 +7,14 @@ import {
   engineering_img_url,
   repair_img_url,
   validation_img_url,
-  low,
   isoImg_url,
   firstImage,
 } from "../../assets";
 
-export default function Home() {
-  const { t, i18n } = useTranslation();
-  document.body.dir = i18n.dir();
+const Lcp = React.lazy(() => import("./Lcp"));
 
-  const Lcp = React.lazy(() => import("./Lcp"));
+export default function Home() {
+  const { t } = useTranslation();
 
   const text_style = {
     fontStyle: "italic",
@@ -37,10 +35,10 @@ export default function Home() {
       <div
         className="vision visionSection col-12 d-flex flex-md-row "
         style={{
-          backgroundImage: `url(${firstImage})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${firstImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          width: "100vw",
+          width: "100%",
           color: "white",
         }}
       >
@@ -48,7 +46,7 @@ export default function Home() {
           className="textvisin visionContent col-12 col-md-6 d-flex flex-row"
           style={{
             padding: "15vmin 20vmin 5vmin 20vmin", // more balanced padding
-            width: "100vw",
+            width: "100%",
             flexWrap: "wrap",
             position: "relative",
           }}

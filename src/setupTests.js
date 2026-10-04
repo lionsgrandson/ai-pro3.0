@@ -10,3 +10,12 @@ global.IntersectionObserver = class IntersectionObserver {
   unobserve() {}
   disconnect() {}
 };
+
+beforeEach(() => {
+  window.matchMedia = jest.fn().mockImplementation((query) => ({
+    matches: false, media: query, addEventListener: jest.fn(), removeEventListener: jest.fn(),
+  }));
+  window.scrollTo = jest.fn();
+  HTMLMediaElement.prototype.play = jest.fn().mockResolvedValue(undefined);
+  HTMLMediaElement.prototype.pause = jest.fn();
+});

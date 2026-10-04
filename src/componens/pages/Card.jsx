@@ -1,43 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Stack from "@mui/material/Stack";
 import "./styles/cards.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Card({ img_url, kind, linkArr }) {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const [isMobile, setIsMobile] = useState(false);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 900);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const handleCardClick = () => {
-    if (isMobile) {
-      setActive((prev) => !prev);
-    }
-  };
-
-  const handleSendClick = () => {
-    navigate(linkArr);
-  };
 
   return (
-    <div
-      className={`cardcontainer cardImg ${isMobile && active ? "active" : ""}`}
+    <article
+      className="cardcontainer cardImg"
       style={{ backgroundImage: `url(${img_url})` }}
-      onClick={handleCardClick}
     >
       <div className="card-text-content-wrapper">
-        <h4 className="h4TextCard">{t(kind)}</h4>
+        <h2 className="h4TextCard">{t(kind)}</h2>
         <p className="pCardText">{t(`${kind} home text`)}</p>
         <Stack
           direction="row"
@@ -49,17 +27,16 @@ export default function Card({ img_url, kind, linkArr }) {
           }}
         >
           <Button
+            component={Link}
+            to={`/${linkArr}`}
+            aria-label={`${t('read more')}: ${t(kind)}`}
             variant="contained"
             endIcon={<ArrowForwardIcon />}
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent toggling active state
-              handleSendClick();
-            }}
           >
-            Read More
+            {t('read more')}
           </Button>
         </Stack>
       </div>
-    </div>
+    </article>
   );
 }

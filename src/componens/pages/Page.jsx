@@ -1,11 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Footer from "../Footer";
 
 export default function Page({ kind, img_url }) {
-  const { t, i18n } = useTranslation();
-
-  document.body.dir = i18n.dir();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -27,7 +24,7 @@ export default function Page({ kind, img_url }) {
       >
         <div
           style={{
-            background: "rgba(0, 0, 0, 0.55)",
+            background: "rgba(0, 0, 0, 0.7)",
             padding: "30px",
             borderRadius: "12px",
             maxWidth: "900px",

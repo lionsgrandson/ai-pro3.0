@@ -4,13 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { logo_cut, israel_color, usa_color } from '../assets'
 import { useTranslation } from 'react-i18next'
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-} from 'mdb-react-ui-kit'
+import { MDBIcon } from 'mdb-react-ui-kit'
 export default function Header() {
   const [expanded, setExpanded] = useState(false)
   const location = useLocation()
@@ -30,30 +24,31 @@ export default function Header() {
     <div className='siteHeader' style={{ direction: 'rtl' }}>
       <Navbar
         collapseOnSelect
-        expand='md'
+        expand='xl'
         bg='light'
         variant='light'
         expanded={expanded}
+        onToggle={setExpanded}
         id='togNav'
         className='mainNavbar'
         style={{ direction: dir, flexWrap: 'wrap' }}
       >
         <Navbar.Brand>
           <div style={{ marginLeft: '20px' }}>
-            <a href='/ai-pro-temp'>
-              {/* TODO when changing the links back remove the ai-pro0temp */}
+            <Link to='/' aria-label={t('home')}>
               <img
                 src={logo_cut}
                 style={{ width: '40px', borderRadius: '50%' }}
                 alt='brand logo'
               />
-            </a>
+            </Link>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls='responsive-navbar-nav'
+          label={t('toggle navigation')}
+          aria-expanded={expanded}
           style={{ marginRight: '20px' }}
-          onClick={() => setExpanded(expanded ? false : 'expanded')}
         />
         <Navbar.Collapse id='responsive-navbar-nav' style={{ direction: dir }}>
           <Nav className='headerNavLinks me-auto my-2 my-lg-0 text-secondary d-flex align-items-center col-10'>
@@ -77,20 +72,20 @@ export default function Header() {
             </Nav.Link>
             <div style={{ display: 'flex' }} className='test2'>
               <Nav.Link
-                as={Link}
-                to='https://www.Linkedin.com/in/itai-amrofel-8b006a11/'
+                href='https://www.linkedin.com/in/itai-amrofel-8b006a11/'
+                aria-label='LinkedIn'
                 className='test2'
                 style={{ margin: ' 0 0.5rem' }}
               >
-                <MDBIcon fab icon='linkedin' />
+                <MDBIcon aria-hidden="true" fab icon='linkedin' />
               </Nav.Link>
 
               <Nav.Link
-                as={Link}
-                to='mailto:office@ai-pro.co.il'
+                href='mailto:office@ai-pro.co.il'
+                aria-label={t('email')}
                 className='test2'
               >
-                <MDBIcon icon='envelope' />
+                <MDBIcon aria-hidden="true" icon='envelope' />
               </Nav.Link>
             </div>
           </Nav>
@@ -102,18 +97,18 @@ export default function Header() {
               marginLeft: '20px',
             }}
           >
-            <img
-              src={usa_color}
-              style={{ width: '30px', marginRight: '5px' }}
-              alt='usa flag'
+            <button type='button' className='languageButton' lang='en'
+              aria-label='English' aria-pressed={i18n.resolvedLanguage === 'en'}
               onClick={() => changeLanguage('en')}
-            />
-            <img
-              src={israel_color}
-              style={{ width: '30px' }}
-              alt='usa flag'
+            >
+              <img src={usa_color} width='30' alt='' />
+            </button>
+            <button type='button' className='languageButton' lang='he'
+              aria-label='עברית' aria-pressed={i18n.resolvedLanguage === 'he'}
               onClick={() => changeLanguage('he')}
-            />
+            >
+              <img src={israel_color} width='30' alt='' />
+            </button>
           </div>
         </Navbar.Collapse>
       </Navbar>

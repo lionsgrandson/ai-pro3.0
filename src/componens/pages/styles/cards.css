@@ -13,11 +13,11 @@
   transition: all 0.3s ease;
   flex: 1 1 calc(25% - 1rem); /* 4 per row on desktop */
   margin: 2rem 0;
-  cursor: pointer;
   max-width: 400px;
 }
 
 .h4TextCard {
+  font-size: 1.5rem;
   text-transform: uppercase;
   text-decoration: underline;
   font-weight: 600;
@@ -35,9 +35,13 @@
   transition: opacity 0.3s ease;
   text-align: center;
   color: white;
+  width: 100%;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-.cardcontainer:hover .card-text-content-wrapper {
+.cardcontainer:hover .card-text-content-wrapper,
+.cardcontainer:focus-within .card-text-content-wrapper {
   opacity: 1;
 }
 
@@ -46,7 +50,7 @@
 }
 
 .cardImg {
-  height: 60vh;
+  min-height: 60vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,11 +72,12 @@
   }
 
   .cardImg {
-    height: 52vh;
-    min-height: 320px;
+    min-height: max(320px, 52vh);
   }
 
-  .cardcontainer.active .card-text-content-wrapper {
-    opacity: 1;
-  }
+}
+
+@media (max-width: 900px), (hover: none) {
+  .card-text-content-wrapper { opacity: 1; }
+  .cardcontainer:hover { transform: none; }
 }

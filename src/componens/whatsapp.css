@@ -1,0 +1,23 @@
+.whatsappWidget { position: fixed; right: 20px; bottom: 20px; z-index: 1100; }
+.whatsappOpener {
+  display: flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px; margin-inline-start: auto;
+  border: 0; border-radius: 50%; background: #128c4e; color: #fff;
+  box-shadow: 0 2px 8px #0004;
+}
+.whatsappChat {
+  width: min(340px, calc(100vw - 32px)); margin-bottom: 12px;
+  color: #212529; background: #f4eee6; border-radius: 12px;
+  box-shadow: 0 2px 16px #0004; overflow: hidden;
+  max-height: calc(100dvh - 112px); overflow-y: auto;
+}
+.whatsappHeader { display: flex; align-items: center; gap: 12px; padding: 12px; background: #075e54; color: #fff; }
+.whatsappHeader img { border-radius: 50%; object-fit: cover; }
+.whatsappHeader h2 { font-size: 1rem; margin: 0; flex: 1; }
+.whatsappHeader button { border: 0; background: transparent; color: #fff; font-size: 28px; min-width: 44px; min-height: 44px; }
+.whatsappBody { padding: 20px; }
+.whatsappBody p { background: #fff; padding: 12px; border-radius: 8px; }
+.whatsappChat form { display: flex; gap: 8px; padding: 12px; background: #fff; }
+.whatsappChat input { min-width: 0; flex: 1; padding: 8px; border: 1px solid #757575; border-radius: 4px; color: #212529; }
+.whatsappChat form button { background: #075e54; color: #fff; border: 0; border-radius: 4px; min-height: 44px; padding: 8px 12px; }
+@media (max-width: 600px) { .whatsappWidget { right: 16px; bottom: 16px; } }

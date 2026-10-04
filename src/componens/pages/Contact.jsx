@@ -17,9 +17,8 @@ export default function ContactForm() {
   const { t } = useTranslation();
 
   const style = {
-    height: "80vmin",
-    minHeight: "500px",
-    backgroundImage: `url(${firstImage})`,
+    minHeight: "max(500px, 80vmin)",
+    backgroundImage: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${firstImage})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     color: "white",
@@ -81,6 +80,8 @@ export default function ContactForm() {
     <div className="col-12 contactSection" style={style}>
       <form
         id="contact-form"
+        aria-labelledby="contact-heading"
+        aria-busy={loading}
         className="text-center contactForm"
         style={{
           width: "100%",
@@ -89,12 +90,15 @@ export default function ContactForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <h1 className="mb-4">{t("contact")}</h1>
+        <h1 id="contact-heading" className="mb-4">{t("contact")}</h1>
 
-        {error && <div className="alert alert-danger">{error}</div>}
-        {success && <div className="alert alert-success">{success}</div>}
+        {error && <div className="alert alert-danger" role="alert">{error}</div>}
+        {success && <div className="alert alert-success" role="status">{success}</div>}
 
         <MDBInput
+          id="contact-name"
+          name="name"
+          autoComplete="name"
           label={t("name")}
           value={name}
           wrapperClass="mb-4"
@@ -104,6 +108,9 @@ export default function ContactForm() {
         />
 
         <MDBInput
+          id="contact-email"
+          name="email"
+          autoComplete="email"
           type="email"
           label={t("email")}
           value={email}
@@ -114,6 +121,8 @@ export default function ContactForm() {
         />
 
         <MDBInput
+          id="contact-subject"
+          name="subject"
           label={t("subject")}
           value={subject}
           wrapperClass="mb-4"
@@ -123,6 +132,8 @@ export default function ContactForm() {
         />
 
         <MDBTextArea
+          id="contact-message"
+          name="message"
           label={t("message")}
           value={message}
           wrapperClass="mb-4"
@@ -132,7 +143,7 @@ export default function ContactForm() {
         />
 
         <MDBBtn color="primary" block type="submit" disabled={loading}>
-          {loading ? t("דending") : t("send")}
+          {loading ? t("sending") : t("send")}
         </MDBBtn>
       </form>
     </div>

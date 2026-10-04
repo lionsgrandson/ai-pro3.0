@@ -8,15 +8,12 @@ jest.mock('react-i18next', () => ({ useTranslation: () => ({ t: (key) => key }) 
 beforeEach(() => jest.clearAllMocks());
 
 function getForm() {
-  // The existing form has no accessible name; locate it through its submit button.
-  // eslint-disable-next-line testing-library/no-node-access
-  return screen.getByRole('button').closest('form');
+  return screen.getByRole('form', { name: 'contact' });
 }
 
 function fillForm() {
-  const fields = screen.getAllByRole('textbox');
-  ['Alice', 'alice@example.com', 'Calibration', '<b>Please contact me</b>']
-    .forEach((value, index) => fireEvent.change(fields[index], { target: { value } }));
+  [['name', 'Alice'], ['email', 'alice@example.com'], ['subject', 'Calibration'], ['message', '<b>Please contact me</b>']]
+    .forEach(([label, value]) => fireEvent.change(screen.getByLabelText(label), { target: { value } }));
   return getForm();
 }
 
@@ -37,7 +34,7 @@ test('keeps EmailJS payload and blocks simultaneous submissions', async () => {
   }));
   await act(async () => finish({ status: 200 }));
   expect(screen.getByText('Email sent successfully!')).toBeInTheDocument();
-  expect(screen.getAllByRole('textbox')[0]).toHaveValue('');
+  expect(screen.getByLabelText('name')).toHaveValue('');
 });
 
 test('failed sends preserve input and allow retry', async () => {
@@ -46,7 +43,7 @@ test('failed sends preserve input and allow retry', async () => {
   const form = fillForm();
   fireEvent.submit(form);
   await screen.findByText('Failed to send email. Please try again.');
-  expect(screen.getAllByRole('textbox')[0]).toHaveValue('Alice');
+  expect(screen.getByLabelText('name')).toHaveValue('Alice');
   fireEvent.submit(form);
   await waitFor(() => expect(emailjs.send).toHaveBeenCalledTimes(2));
   await screen.findByText('Email sent successfully!');
